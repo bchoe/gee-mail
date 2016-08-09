@@ -1,18 +1,71 @@
-<html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
+<!DOCTYPE html>
+ <html>
+  <head>
+    <script src="js/mail-generator.js"></script>
+    <link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        console.log("working?!")
-      };
+        
+       /* console.log(geemails);
+        console.log(geemails[0].sender);*/
+        
+        //this loops all data from the JS to the html so that each individual subject,sender,body, and date does not need to be hard coded//
+
+        console.log (geemails.length);
+        console.log (geemails[i]);
+        
+        for(var i = 0; i<geemails.length; i++){
+          
+          console.log (geemails[i].sender);
+          console.log (geemails[i].subject);
+          console.log (geemails[i].date);
+          console.log (geemails[i].body);
+
+          var emailwrap = document.createElement('div');
+          emailwrap.className="email";
+          document.body.appendChild(emailwrap);
+
+          var senderData = document.createElement('div');
+          senderData.className = "sender";
+          senderData.innerHTML = geemails[i].sender;
+          email.appendChild(senderData);
+
+          var subjectData = document.createElement('div');
+          subjectData.className = "subject";
+          subjectData.innerHTML = geemails[i].subject;
+          email.appendChild(subjectData);
+
+          var dateData = document.createElement('div');
+          dateData.className = "date";
+          dateData.innerHTML = geemails[i].date;
+          email.appendChild(dateData);
+
+          var bodyData = document.createElement('div');
+          bodyData.className = "body";
+          bodyData.innerHTML = geemails[i].body;
+          email.appendChild(bodyData);
+
+        }
+
+      var inboxCounter = document.createElement ('div');
+      inboxCounter.id ="count"
+      inboxCounter.innerHTML = "Be happy, someone cares about you this much: " + geemails.length;
+      inbox.appendChild(inboxCounter);
+
+      }
+      /*getMails(geemails);*/
+
+      
+
     </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
-		</div>
-	</body>
+  </head>
+  <body>
+    <div class="container" id="main">
+      <h1>My Geemail</h1>
+      <div id="inbox"></div>
+      <div id="email"></div>
+           
+  </body>
 </html>
