@@ -1,0 +1,32 @@
+body{
+
+background-color: black;
+color: red;
+font-family: "Times new roman";
+font-size: 100%;
+
+}
+
+.body {
+	display:none;
+}
+
+.sender {
+    
+    border-style: outset;
+    border-width: 1px;
+    
+}
+
+.date {
+    
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.body, .subject {
+	
+    border-style: solid;
+    border-width: 1px;
+}
+
