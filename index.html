@@ -23,42 +23,63 @@
           console.log (geemails[i].date);
           console.log (geemails[i].body);
 
-          var emailwrap = document.createElement('div');
-          emailwrap.className="email";
-          document.body.appendChild(emailwrap);
+          var soulwrap = document.createElement('div');
+          soulwrap.className="email";
+          document.body.appendChild(soulwrap);
 
-          var senderData = document.createElement('div');
-          senderData.className = "sender";
-          senderData.innerHTML = geemails[i].sender;
-          email.appendChild(senderData);
+          var headData = document.createElement('div');
+          headData.className = "sender";
+          headData.innerHTML = geemails[i].sender;
+          soulwrap.appendChild(headData);
 
-          var subjectData = document.createElement('div');
-          subjectData.className = "subject";
-          subjectData.innerHTML = geemails[i].subject;
-          email.appendChild(subjectData);
+          var shouldersData = document.createElement('div');
+          shouldersData.className = "subject";
+          shouldersData.innerHTML = geemails[i].subject;
+          soulwrap.appendChild(shouldersData);
 
-          var dateData = document.createElement('div');
-          dateData.className = "date";
-          dateData.innerHTML = geemails[i].date;
-          email.appendChild(dateData);
+          var kneesData = document.createElement('div');
+          kneesData.className = "date";
+          kneesData.innerHTML = geemails[i].date;
+          soulwrap.appendChild(kneesData);
 
-          var bodyData = document.createElement('div');
-          bodyData.className = "body";
-          bodyData.innerHTML = geemails[i].body;
-          email.appendChild(bodyData);
+          var toesData = document.createElement('div');
+          toesData.className = "body";
+          toesData.innerHTML = geemails[i].body;
+          soulwrap.appendChild(toesData);
 
         }
 
-      var inboxCounter = document.createElement ('div');
+      var inboxCounter = document.createElement ("div");
       inboxCounter.id ="count"
-      inboxCounter.innerHTML = "Be happy, someone cares about you this much: " + geemails.length;
+      inboxCounter.innerHTML = "Be happy!  Someone cares about you alot!: " + geemails.length;
       inbox.appendChild(inboxCounter);
 
-      }
-      /*getMails(geemails);*/
-
+/*      console.log(getNewMessage());
+      var newmsg = (getNewMessage);
       
+      var senderData= document.createElement('div');
+      subjectData.className ="subject";
+      subjectData.innerHTML = getNewMessage().subject;
+      email.appendChild(subjectData);*/
+      
+    var emailElements = document.getElementsByClassName('email');
+    
+    for (var i=0; i<emailElements.length; i++){
+      emailElements[i].addEventListener('click', showMessage);
+    }
 
+    function showMessage(event){
+      var msg = this.querySelectorAll(".body")[0];
+      if(msg.style.display === 'none'){
+        msg.style.display = 'block';
+      }else{
+        msg.style.display = 'none';
+      }
+    }      
+
+      }
+      
+    
     </script>
   </head>
   <body>
