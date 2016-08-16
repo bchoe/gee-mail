@@ -1,32 +1,57 @@
+header{
+	font-size:300%;
+	font-family:"Impact";
+	text-align: center
+
+}
+
 body{
 
-background-color: black;
-color: red;
-font-family: "Times new roman";
+background-color: white;
+color: black;
+font-family: "Ariel";
 font-size: 100%;
+font-weight: bold;
 
+background-image: url("http://b-cdn.s3.amazonaws.com/wp-content/uploads/2013/06/css-style-300x1541.png");
+background-repeat: repeat;
+background-position: top center;
+	
 }
 
 .body {
 	display:none;
+
 }
 
-.sender {
-    
-    border-style: outset;
-    border-width: 1px;
-    
-}
+.ultraMail {
 
-.date {
-    
-    border-style: dashed;
-    border-width: 1px;
-}
-
-.body, .subject {
-	
+    font-family: "Helvetica";
+	font-size: 100%;
+	font-weight: bold;
     border-style: solid;
     border-width: 1px;
+    margin: 5px;
+    background-color: #ffffff;
+    border: .5px solid black;
+    opacity: 0.8;
+    width: 22em;
+    word-wrap: break-word;
+    
+    
+}
+
+#inbox{
+	color: black;
+	text-align: left;
+}
+
+#geemailicon{
+	border: 0px solid #DDDDDD;
+	width: 100px;
+	height: 100px;
+	position:absolute;
+    top:10px;
+    right: 10px;
 }
 
