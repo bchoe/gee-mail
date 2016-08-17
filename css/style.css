@@ -1,12 +1,14 @@
 header{
-	font-size:300%;
-	font-family:"Impact";
-	text-align: center
+	font-size:400%;
+	font-family:"Verdana";
+	color: purple;
+	text-align: center;
+	background-image: url("http://bigskypublicrelations.com/wp-content/uploads/2014/08/big-sky-.jpg");
 
 }
 
-body{
 
+body {
 background-color: white;
 color: black;
 font-family: "Ariel";
@@ -16,6 +18,10 @@ font-weight: bold;
 background-image: url("http://b-cdn.s3.amazonaws.com/wp-content/uploads/2013/06/css-style-300x1541.png");
 background-repeat: repeat;
 background-position: top center;
+
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 	
 }
 
@@ -25,7 +31,6 @@ background-position: top center;
 }
 
 .ultraMail {
-
     font-family: "Helvetica";
 	font-size: 100%;
 	font-weight: bold;
@@ -38,20 +43,66 @@ background-position: top center;
     width: 22em;
     word-wrap: break-word;
     
-    
+        
 }
 
 #inbox{
 	color: black;
-	text-align: left;
+	text-align: center;
+	font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    margin: 5px;
+    background-color: #ffffff;
+    border: .5px solid black;
+    opacity: 0.8;
+    width: 6em;
+
+
+	
 }
 
-#geemailicon{
-	border: 0px solid #DDDDDD;
-	width: 100px;
-	height: 100px;
-	position:absolute;
-    top:10px;
-    right: 10px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+    opacity: 0.8;
+}
+
+#unclesam{
+
+height:300px;
+width:300px;
+
+position:fixed;
+right:0;
+
+}
+#hotsingles{
+
+height:300px;
+width:300px;
+position: fixed;
+bottom:0;
+right:0;
+}
+
+#Geemailicon{
+	float:left;
+	opacity: 1;
+}
+#shieldicon{
+	float:right;
+	opacity: 1;
+}
