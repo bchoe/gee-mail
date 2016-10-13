@@ -4,194 +4,114 @@
     <script src="js/mail-generator.js"></script>
     <link href="css/style.css" rel="stylesheet" media="screen">
     <script>
-      
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-       /* console.log(geemails);
-        console.log(geemails[0].sender);*/
-        
-        //this loops all data from the JS to the html so that each individual subject,sender,body, and date does not need to be hard coded//
-        
-  window.onload = function(){
-        
-          console.log(geemails);
-           //inside geemails is an array of 10 objects. in each object is 4 properties: sender, subject, data, and body
-          
-        for(var i=0; i<geemails.length; i++){
-          //this for loops, goes through the array of objects in geemails, all 10 objects.
-          //console logging shows what is insside the pre-populated data.
-          console.log(geemails[i].sender); 
-          //this pulls each sender property from each object
-          
-          console.log(geemails[i].subject); 
-          //this pulls each subject property from each object
-          
-          console.log(geemails[i].date); 
-          //this pulls each date property from each object
-          
-          console.log(geemails[i].body); 
-          //this pulls each body property from each object
-          var emaildata=document.createElement('div'); 
-          emaildata.className="ultraMail";
-          main.appendChild(emaildata);
-          //this creates emaildata with the className 'ultraMail', which is appended to the main div.
-          //emaildata is child
-          //main is parent
-          var headdata=document.createElement('div');
-          headdata.className='sender';
-          headdata.innerHTML=geemails[i].sender;
-          emaildata.appendChild(headdata);
-          //this creates headdata, a created element in the document. headdata is given the className 'sender' 
-         /* geemails[i].sender is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //headdata is child
-          //emaildata is parent
-          var shoulderdata=document.createElement('div');
-          shoulderdata.className='subject';
-          shoulderdata.innerHTML=geemails[i].subject;
-          emaildata.appendChild(shoulderdata);
-          //this creates shoulderdata, a created element in the document. shoulderdata is given the className 'subject' 
-          /* geemails[i].subject is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //subjectdata is child
-          //emaildata is parent
-          var kneesdata=document.createElement('div');
-          kneesdata.className='date';
-          kneesdata.innerHTML=geemails[i].date;
-          emaildata.appendChild(kneesdata);
-          //this creates kneesdata, a created element in the document. kneesata is given the className 'date' 
-          /* geemails[i].date is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //kneesdata is child
-          //emaildata is parent
-          var toesdata=document.createElement('div');
-          toesdata.className='body';
-          toesdata.innerHTML=geemails[i].body;
-          emaildata.appendChild(toesdata);
-          //this creates toesdata, a created element in the document. toesdata is given the className 'body' 
-          /* geemails[i].sender is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //toesdata is child
-          //emaildata is parent
-                
+
+    window.onload = function(){
+
+      for(var i = 0; i < geemails.length; i++){
+
+        var emaildata = document.createElement('div');
+        emaildata.className = "ultraMail";
+        main.appendChild(emaildata);
+
+        var headdata=document.createElement('div');
+        headdata.className = 'sender';
+        headdata.innerHTML = geemails[i].sender;
+        emaildata.appendChild(headdata);
+
+        var shoulderdata=document.createElement('div');
+        shoulderdata.className = 'subject';
+        shoulderdata.innerHTML = geemails[i].subject;
+        emaildata.appendChild(shoulderdata);
+
+        var kneesdata=document.createElement('div');
+        kneesdata.className = 'date';
+        kneesdata.innerHTML = geemails[i].date;
+        emaildata.appendChild(kneesdata);
+
+        var toesdata = document.createElement('div');
+        toesdata.className = 'body';
+        toesdata.innerHTML = geemails[i].body;
+        emaildata.appendChild(toesdata);
+
+      }
+
+        var count = document.getElementById('inbox');
+        count.innerHTML = "New Mail" + " " + geemails.length;
+
+        var newEvent = document.getElementsByClassName('ultraMail');
+        for (var i = 0; i < newEvent.length; i++){
+          newEvent[i].addEventListener('click',openbody);
+        }
+
+        function openbody(){
+          var msg = this.querySelectorAll('.body')[0];
+          if (msg.style.display === 'none'){
+            msg.style.display = 'block';
+          }else{
+            msg.style.display = 'none';
           }
-          /*var inboxcount=document.createElement('div');
-          inboxcount.id='inbox';
-          inboxcount.innerHTML= "New Mail" + " " + geemails.length;  
-          inbox.appendChild(inboxcount);*/
-          var count=document.getElementById('inbox');
-          count.innerHTML= "New Mail" + " " + geemails.length;
-          
-          // declaring a variable named count, getting an element by Id called 'inbox' in document. length of 10 from geemails to be added next to 'New Mail' 
-          
-          var newEvent=document.getElementsByClassName('ultraMail'); 
-          //creating a newEvent for ultraMail. currently .body is displaying:none in style.css.
-          for (var i=0; i<newEvent.length; i++){
-            newEvent[i].addEventListener('click',openbody);
-          }
-          //create a for loop to loop through the length of ultraMail and adding an event listener which will open body upon 'click'
- 
-          function openbody(){
-            var msg=this.querySelectorAll('.body')[0];
-            if (msg.style.display=== 'none'){
-              msg.style.display = 'block';
-            }else{
-              msg.style.display = 'none';
-            }
-          }
-          //creates a function called openbody selecting all body properties from the begining of the array of data [0].
-          //using an if/else statement, if the msg.style.display is 'none', clicking it will display the .body in block format. or else display 'none'
-         
-          console.log(getNewMessage());
+        }
+
         function rotate(){
-          //declaring a function called rotate
+
           var ratchetMail=getNewMessage();
-          //declaring a variable named ratchetMail which will utilize the getNewMessage function, generating an object with subject, sender, data, and body properties.
+
           var emaildata=document.createElement('div');
           emaildata.className='ultraMail';
           main.appendChild(emaildata);
-          //this creates emaildata with the className 'ultraMail', which is appended to the main div.
-          //emaildata is child
-          //main is parent
+
           var headdata=document.createElement('div');
           headdata.className='sender';
           headdata.innerHTML=ratchetMail.sender;
           emaildata.appendChild(headdata);
-          //this creates headdata, a created element in the document. headdata is given the className 'sender' 
-         /* ratchetMail.sender is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //headdata is child
-          //emaildata is parent
+
           var shouldersdata=document.createElement('div');
-          shouldersdata.className='subject';
-          shouldersdata.innerHTML=ratchetMail.subject;
+          shouldersdata.className = 'subject';
+          shouldersdata.innerHTML = ratchetMail.subject;
           emaildata.appendChild(shouldersdata);
-          //this creates shoulderdata, a created element in the document. shoulderdata is given the className 'subject' 
-          /* ratchetMail.subject is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //subjectdata is child
-          //emaildata is parent
-          var kneesdata=document.createElement('div');
-          kneesdata.className='date';
-          kneesdata.innerHTML=ratchetMail.date;
+
+          var kneesdata = document.createElement('div');
+          kneesdata.className = 'date';
+          kneesdata.innerHTML = ratchetMail.date;
           emaildata.appendChild(kneesdata);
-          //this creates kneesdata, a created element in the document. kneesata is given the className 'date' 
-          /* ratchetMail.date is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //kneesdata is child
-          //emaildata is parent
-          var toesdata=document.createElement('div');
-          toesdata.className='body';
-          toesdata.innerHTML=ratchetMail.body;
+
+          var toesdata = document.createElement('div');
+          toesdata.className = 'body';
+          toesdata.innerHTML = ratchetMail.body;
           emaildata.appendChild(toesdata);
-          //this creates toesdata, a created element in the document. toesdata is given the className 'body' 
-          /* ratchetMail.sender is pulled to headdata in .innerHTML 
-          which is appended to emaildata container.*/
-          //toesdata is child
-          //emaildata is parent
-            var newEvent=document.getElementsByClassName('ultraMail');
-            //creating a newEvent for ultraMail. currently .body is displaying:none in style.css.
-              for (var i=0; i<newEvent.length; i++){
-              newEvent[i].addEventListener('click', openbody);
-            }
-            //create a for loop to loop through the length of ultraMail and adding an event listener which will open body upon 'click'
-            function openbody(){
-              var msg=this.querySelectorAll('.body')[0];
-                if (msg.style.display=== 'none'){
-                  msg.style.display = 'inline';
-                }else{
-                  msg.style.display = 'none';
-          
-          //var inboxcount=document.createElement('div');
-          /*inboxcount.id='inbox';*/
-          // inboxcount.innerHTML= 'New Mail ' + ' ' + geemails.length++;  
-          
-          // inbox.appendChild(inboxcount);
-                  
+
+
+          var newEvent = document.getElementsByClassName('ultraMail');
+
+          for (var i = 0; i < newEvent.length; i++){
+            newEvent[i].addEventListener('click', openbody);
           }
+
+          function openbody(){
+            var msg = this.querySelectorAll('.body')[0];
+              if (msg.style.display === 'none'){
+                msg.style.display = 'inline';
+              }else{
+                msg.style.display = 'none';
+              }
+          }
+
+          var count = document.getElementById('inbox');
+          count.innerHTML = "New Mail" + ' ' + geemails.length++;
         }
-        
-        var count=document.getElementById('inbox');
-        count.innerHTML = "New Mail" + ' ' + geemails.length++;          
-      
-      // declaring a variable named count, getting an element by Id called 'inbox' in document. length of 10 from geemails to be added next to 'New Mail'
-      }
         setInterval(rotate, 3000);
-        // the setInterval method calls the function above called rotate and evaluates the expression at specified increments. each 1000 second is one second. 
-        //every 1000 is one second. null is spam mode...
-  };     
-    
+   };
+
     </script>
   </head>
-  
+
   <body>
-    
-    <header> My Geemail 
+
+    <header> My Geemail
       <div id="Geemailicon"><img src="http://androidandme.com/wp-content/uploads/2013/03/gmail-play-630-75x75.jpg"></div>
       <div id="shieldicon"><img src="http://happywithgame.com/wp-content/uploads/2014/12/8-bit-video-game-icons-300x300-75x75.jpg"></div>
     </header>
-    
+
     <div id='topicons'>
       <ul>
         <li><a href="https://www.nantucketchronicle.com/sites/default/files/styles/large/public/images/articles/resized_business-dog-meme-generator-i-sent-you-an-e-mail-to-let-you-know-i-sent-an-e-mail-4012b0.jpg?itok=aL_awi1N"target="_blank">Sent</a></li>
@@ -201,10 +121,10 @@
       </ul>
     </div>
     <div id='inbox'></div>
-    
+
     <div id="main">
       <div id='unclesam'><a href="https://www.youtube.com/watch?v=JjDsRN89sIA"><img src="http://www.unclesamsjamms.com/unclesamcash7.jpg"/></div>
       <div id="hotsingles"><a href="https://www.youtube.com/watch?v=bT90D0GKZRM"><img src="http://www.richwomendatingsites.com/wp-content/uploads/2016/03/millionaire-dating-sites.png"></div>
-    </div> 
+    </div>
   </body>
 </html>
